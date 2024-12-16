@@ -15,7 +15,7 @@ export const ProductContextProvider = ({ children }) => {
       setLoading(true);
       const token = localStorage.getItem("token");
       const response = await fetch(
-        "http://3.110.118.196:5050/api/product/getData"
+        "https://mlb-backnd.duckdns.org/api/product/getData"
       );
       if (!response.ok) {
         throw new Error("Failed to fetch orders");
