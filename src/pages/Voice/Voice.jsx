@@ -172,7 +172,7 @@ const Voice = () => {
 console.log(data);
 
         try {
-            const response = await axios.post('http://localhost:5050/api/product/createProduct', data);
+            const response = await axios.post('https://mlb-backnd.duckdns.org/api/product/createProduct', data);
             console.log('Data submitted successfully:', response.data);
             // Handle response or reset fields if needed
         } catch (error) {
