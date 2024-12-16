@@ -1,0 +1,173 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .main-content {
+    width: 100%;
+    height: 100px;
+    margin: 20px;
+    border: 2px solid #ddd;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #333;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+  
+  .message-box {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    font-size: 1rem;
+    color: #555;
+    background-color: #f0f0f0;
+    width: 80%;
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  .btn-style {
+    margin: 20px;
+  }
+  
+  .btn-style button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-style button:hover {
+    background-color: #0056b3;
+  }
+  
+  .listening {
+    color: green;
+    font-size: 1.5rem;
+    animation: pulse 1s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  
+  .speaking {
+    color: blue;
+    font-size: 1.5rem;
+    animation: speakWave 1s infinite;
+  }
+  
+  @keyframes speakWave {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+  }
+  
+  .icon {
+    font-size: 2rem;
+    margin-right: 10px;
+  }
+  
+  .transcript-box {
+    margin: 10px;
+    width: 80%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #fafafa;
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
+  }
+img {
+    height: 100px;
+    width: 100px;
+}  
+
+/* const commands = [
+  {
+      command: 'new report * se ',
+      // callback: async (query) => {
+      //     setMessage(query); // Set the user's query as message
+      //     await callOpenAI(query); // Call OpenAI with the query
+      // },
+  },
+  {
+      command: 'Please open * and search for *',
+      callback: async (website, query) => {
+          const urlMap = {
+              youtube: `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`,
+              google: `https://www.google.com/search?q=${encodeURIComponent(query)}`
+          };
+
+          const lowerCaseWebsite = website.toLowerCase();
+          const searchUrl = urlMap[lowerCaseWebsite] || `https://${website}.com`;
+
+          const msg = `Opening ${lowerCaseWebsite} and searching for ${query}.`;
+          window.open(searchUrl, '_blank');
+          setMessage(msg);
+          speakMessage(msg); // Speak the message
+      },
+  },
+  {
+      command: 'open * please',
+      callback: async (website) => {
+          const msg = `Opening ${website}.com`;
+          window.open(`https://${website}.com`, '_blank');
+          setMessage(msg);
+          speakMessage(msg); // Speak the message
+      },
+  },
+  {
+      command: 'open karo *',
+      callback: (website) => {
+          const msg = `tere baap ki nokar nahi hu jo ${website} kholke du`;
+          setMessage(msg);
+          speakMessage(msg); // Speak the message
+      },
+  },
+  {
+      command: 'reset',
+      callback: () => {
+          resetTranscript();
+          const msg = 'Transcript has been reset!';
+          setMessage(msg);
+          speakMessage(msg); // Speak the message
+      },
+  },
+  {
+      command: 'change background colour to *',
+      callback: (color) => {
+          try {
+              document.body.style.backgroundColor = color;
+              const msg = `Changed background color to ${color}`;
+              setMessage(msg);
+              speakMessage(msg);
+          } catch (error) {
+              console.error("Invalid color input:", error);
+          }
+      },
+  },
+  {
+      command: 'speak *',
+      callback: (msg) => {
+          setMessage(msg);
+          speakMessage(msg); // Speak the user-set message
+      }
+  }
+]; */

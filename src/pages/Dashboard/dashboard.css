@@ -1,0 +1,285 @@
+.mainCharts {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    gap: 2vw;
+    flex-wrap: wrap;
+  }
+  
+  .dataCard {
+    background-color: #ffffff;
+    border-radius: 0.5em;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 1em;
+  }
+  
+  .revenueCard,
+  .customerCard,
+  .categoryCard,
+  .polarCard,
+  .indiaMapCard,
+  .pieCard {
+    min-height: 20rem;
+  }
+  
+  .revenueCard {
+    width: 92%;
+  }
+  
+  .customerCard,
+  .categoryCard,
+  .polarCard,
+  .pieCard {
+    width: 40%;
+  }
+  
+  
+  .orderSummaryContainer1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding-top: 20px;
+  }
+  
+  .orderSummaryCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 26px;
+    border-radius: 10px;
+    background-color: #fbfcf8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .grid-tiles {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; 
+    width: 80%;
+  }
+  .datagraph{
+    display: flex;
+    gap: 10rem;
+  }
+  .graph-container {
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 35rem;
+    height: 26rem;
+  }
+.topDestinationsCard{
+  height: 26rem;
+}
+  .pieChart{
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+  }
+
+  .orderSummaryCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 26px;
+    border-radius: 10px;
+    background-color: #fbfcf8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .orderSummary h3 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .orderSummary p {
+    margin: 0;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .orderIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /*=============== MEDIA QUERIES ===============*/
+  
+  /* Large devices (desktop) */
+  @media screen and (max-width: 1200px) {
+    .mainCharts {
+      gap: 1.5vw;
+    }
+  }
+  
+  /* Medium devices (tablets) */
+  @media screen and (max-width: 992px) {
+    .mainCharts {
+      flex-direction: column;
+      gap: 2rem; /* Adjust gap for stacking */
+    }
+  
+    .customerCard,
+    .categoryCard,
+    .polarCard,
+    .pieCard,
+    .indiaMapCard {
+      width: 90%; /* Full width on medium devices */
+    }
+    
+    .revenueCard {
+      width: 100%;
+    }
+  
+    .orderSummaryContainer1 {
+      /* grid-template-columns: 1fr; */
+      gap: 50px; /* Adjust gap */
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .mainCharts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* padding: 20px; */
+  }
+  
+  .smallBoxGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .dataCard {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+
+  
+  .orderSummaryCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 26px;
+    border-radius: 10px;
+    background-color: #fbfcf8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .orderSummary h3 {
+    margin: 0;
+  }
+  
+  .orderSummary p {
+    margin: 5px 0;
+  }
+  
+  /* Small devices (mobile) */
+  @media screen and (max-width: 768px) {
+    .mainCharts {
+      margin-top: 3rem;
+    }
+  
+    .revenueCard,
+    .customerCard,
+    .categoryCard,
+    .polarCard,
+    .pieCard,
+    .indiaMapCard {
+      width: 100%;
+      height: auto;
+    }
+    
+    .orderSummaryCard {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 26px;
+      border-radius: 10px;
+      background-color: #fbfcf8;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+  
+    .orderSummary h3 {
+      font-size: 20px;
+    }
+  
+    .orderSummary p {
+      font-size: 12px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .mainCharts {
+      margin-top: 2rem;
+    }
+    .orderSummaryCard {
+      height: 154px;
+    }
+    .revenueCard,
+    .customerCard,
+    .categoryCard,
+    .polarCard,
+    .pieCard,
+    .indiaMapCard {
+      width: 100%;
+      height: auto;
+    }
+
+    .datagraph{
+      display: flex;
+      gap: 3rem;
+      flex-direction: column;
+    }
+    .pieChart{
+      height: 59vh;
+      width: 75vw;
+    }
+  .grid-tiles{
+    grid-template-columns: repeat(3, 1fr);
+  }
+    .orderSummaryCard {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      padding: 12px;
+      width: 75px;
+      height: 148px;
+    }
+    .dataCard {
+      background-color: #ffffff;
+      border-radius: 0.5em;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      padding: 8px;
+    }
+    .topDestinationsCard{
+      height: 15rem;
+    }
+    .orderSummary h3 {
+      font-size: 18px;
+      text-align: center;
+    }
+    .orderSummary p {
+      font-size: 11px;
+      text-align: center;
+    }
+    .orderSummaryContainer1 { 
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 35px;
+      padding-top: 5px;
+    }
+  }
+  
