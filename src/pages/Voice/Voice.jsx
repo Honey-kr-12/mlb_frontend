@@ -20,6 +20,18 @@ const Voice = () => {
     const [amountPending, setAmountPending] = useState('');
     const [paymentMode, setPaymentMode] = useState('');
 
+    const instructions = [
+        { field: goodServicesDate, text: 'Set date' },
+        { field: purchaserName, text: 'Set name' },
+        { field: goodsServicesName, text: 'Set product name' },
+        { field: quantity, text: 'Set quantity' },
+        { field: amount, text: 'Set amount' },
+        { field: gst, text: 'Set GST' },
+        { field: amountPaid, text: 'Set amount paid' },
+        { field: amountPending, text: 'Set amount pending' },
+        { field: paymentMode, text: 'Set payment mode' },
+    ];
+
     // Function to speak the message
     const speakMessage = (msg) => {
         if (!voicesLoaded) {
@@ -46,18 +58,15 @@ const Voice = () => {
             }
         };
 
-        // Re-fetch voices when they become available
         if (window.speechSynthesis.onvoiceschanged !== undefined) {
             window.speechSynthesis.onvoiceschanged = loadVoices;
         }
 
-        // Load voices if already available
         if (window.speechSynthesis.getVoices().length > 0) {
             loadVoices();
         }
     }, []);
 
-    // Define commands for specific actions
     const commands = [
         {
             command: 'reset',
@@ -65,7 +74,7 @@ const Voice = () => {
                 resetTranscript();
                 const msg = 'Transcript has been reset!';
                 setMessage(msg);
-                speakMessage(msg); // Speak the message
+                speakMessage(msg);
             },
         },
         {
@@ -87,10 +96,10 @@ const Voice = () => {
             },
         },
         {
-            command: 'set service name *',
+            command: 'set product name *',
             callback: (name) => {
                 setGoodsServicesName(name);
-                const msg = `Goods service name set to ${name}`;
+                const msg = `Goods product name set to ${name}`;
                 setMessage(msg);
                 speakMessage(msg);
             },
@@ -169,16 +178,22 @@ const Voice = () => {
             amountPending,
             paymentMode,
         };
-console.log(data);
-
+        console.log(data);
+    
         try {
             const response = await axios.post('https://mlb-backnd.duckdns.org/api/product/createProduct', data);
             console.log('Data submitted successfully:', response.data);
-            // Handle response or reset fields if needed
+            const successMessage = "Order saved successfully!";
+            setMessage(successMessage);
+            speakMessage(successMessage); // Speak the success message
         } catch (error) {
             console.error('Error submitting data:', error);
+            const errorMessage = "Failed to save the order. Please try again.";
+            setMessage(errorMessage);
+            speakMessage(errorMessage); // Speak the error message
         }
     };
+    
 
     if (!browserSupportsSpeechRecognition) {
         return <p>Your browser doesn't support speech recognition.</p>;
@@ -191,26 +206,63 @@ console.log(data);
             </div>
 
             <div className="message-box">
-                <strong>Message:</strong> {message ? message : 'No message yet'}
-                <div>
-                    {!speaking ? (
-                        <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3XmSu2CPxs0vphM302ciA7ia6hhf18mkadw&s"
-                            alt="Speaker Icon"
-                        />
-                    ) : (
-                        <img
-                            src="https://img.freepik.com/premium-vector/cute-girl-talk-using-mic_274619-47.jpg"
-                            alt="Speaking Icon"
-                        />
-                    )}
-                </div>
+    <strong>Message:</strong> {message ? message : 'No message yet'}
+    <div>
+        {!speaking ? (
+            <div>
+                <p>
+                    <strong>Good Services Date:</strong> {goodServicesDate || 'Not set'}
+                </p>
+                <p>
+                    <strong>Purchaser Name:</strong> {purchaserName || 'Not set'}
+                </p>
+                <p>
+                    <strong>Goods/Services Name:</strong> {goodsServicesName || 'Not set'}
+                </p>
+                <p>
+                    <strong>Quantity:</strong> {quantity || 'Not set'}
+                </p>
+                <p>
+                    <strong>Amount:</strong> {amount || 'Not set'}
+                </p>
+                <p>
+                    <strong>GST:</strong> {gst || 'Not set'}
+                </p>
+                <p>
+                    <strong>Amount Paid:</strong> {amountPaid || 'Not set'}
+                </p>
+                <p>
+                    <strong>Amount Pending:</strong> {amountPending || 'Not set'}
+                </p>
+                <p>
+                    <strong>Payment Mode:</strong> {paymentMode || 'Not set'}
+                </p>
             </div>
+        ) : (
+            <p>Speaking...</p>
+        )}
+    </div>
+</div>
+
 
             <div className="btn-style">
                 <button onClick={startListening}>{listening ? 'Stop' : 'Start'}</button>
                 <button onClick={resetTranscript}>Reset</button>
                 <button onClick={submitData}>Submit Data</button>
+            </div>
+
+            <div className="instructions">
+                <h3>Instructions:</h3>
+                <ul>
+                    {instructions.map((instruction, index) => (
+                        <li key={index}>
+                            {instruction.text}{' '}
+                            {instruction.field && (
+                                <span style={{ color: 'green', fontWeight: 'bold' }}>✔</span>
+                            )}
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     );
