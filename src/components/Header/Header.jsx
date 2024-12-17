@@ -31,7 +31,7 @@ const Header = ({ darktheme }) => {
   return (
     <div className={darktheme ? 'darkHeader' : 'main-header'}>
       <div className="header-container" >
-        <Button onClick={() => navigate('/productvoice')}>Click</Button>
+        <Button onClick={() => navigate('/anna')}>Click</Button>
         <span className='span'></span>
         <Button className={`${100 >= 0 ? 'money' : 'insuffient'}`} type="default">&#8377;  {100.0909?.toFixed(2)}</Button>
         <span className='span'></span>

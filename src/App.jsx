@@ -28,7 +28,7 @@ function App() {
             }
           />
           <Route
-            path="productvoice"
+            path="anna"
             element={
               // <ProtectedRoute>
                 <Voice />
