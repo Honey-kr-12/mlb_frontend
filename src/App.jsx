@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Products from "./pages/Products/Products";
-import Voice from "./pages/Voice/Voice";
+import Voice2 from "./pages/Voice/Voice2";
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
             path="anna"
             element={
               // <ProtectedRoute>
-                <Voice />
+                <Voice2 />
               // </ProtectedRoute>
             }
           />
